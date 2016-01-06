@@ -1,4 +1,15 @@
 class UsersController < ApplicationController
+  
+  def index
+    @users = User.all
+    
+      if @current_user && @current_user.role != "admin" or @current_user == nil
+        flash[:error] = "Accès interdit ! (S'identifier en session: admin)"
+        redirect_to request.referrer || root_path
+      end
+  end
+  
+  
   def home
   end
 
@@ -26,7 +37,6 @@ class UsersController < ApplicationController
         redirect_to "/users/login"
       end
   end
-  
   
   
   

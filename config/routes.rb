@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   
   
   get 'users/delogin' =>    'users#delogin'
-
+  
+  
+  get 'users/index'   =>    'users#index'
+  
 
   post 'users/login'  =>    'users#check'
   
