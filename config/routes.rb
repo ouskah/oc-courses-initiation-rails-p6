@@ -3,9 +3,16 @@ Rails.application.routes.draw do
   
   get 'users/home'    =>    'users#home'
   
+  
   get 'users/login'   =>    'users#login'
   
+  
+  get 'users/delogin' =>    'users#delogin'
+
+
   post 'users/login'  =>    'users#check'
+  
+  
 
 
 

@@ -10,12 +10,20 @@ class UsersController < ApplicationController
   def login
   end
   
+  def delogin
+    
+    session[:user_id] = nil
+    redirect_to "/users/home"
+    
+  end
+  
+  
   def check
     @current_user = User.where(name: params[:name], password: params[:password]).first
       if @current_user
         session[:user_id] = @current_user.id
         
-        flash[:info] = "Bienvenue #{@current_user.name} !"
+        #flash[:info] = "Bienvenue #{@current_user.name} !"
         redirect_to "/users/home"
       else
         session[:user_id] = nil
