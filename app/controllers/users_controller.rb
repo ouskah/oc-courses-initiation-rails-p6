@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
   def home
-    
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    end
-
   end
 
   def login
@@ -31,5 +26,9 @@ class UsersController < ApplicationController
         redirect_to "/users/login"
       end
   end
-
+  
+  
+  
+  
+  
 end
